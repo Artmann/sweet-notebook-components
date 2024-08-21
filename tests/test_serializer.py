@@ -7,15 +7,16 @@ def test_serialize_text_component() -> dict:
 
     serializer = Serializer()
 
-    json = serializer.serialize_component(text_component)
+    json = serializer.serialize_to_json(text_component)
 
     assert (
         json
         == """{
-  "type": "text",
+  "children": [],
   "props": {
     "body": "Hello, World!",
     "help": null
-  }
+  },
+  "type": "text"
 }"""
     )
