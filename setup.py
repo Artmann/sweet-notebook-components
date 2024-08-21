@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="sweet_notebook_components",
-    version="1.0.2",
+    version="1.0.5",
     packages=find_packages(),
     install_requires=["IPython"],
     author="Christoffer Artmann",
