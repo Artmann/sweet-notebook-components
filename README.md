@@ -14,6 +14,13 @@ st.text("Hello, World!")
 
 ## Development
 
+Install the dependencies:
+
+```sh
+pip install -r requirements.txt
+
+```
+
 Activate the environment:
 
 On Windows:
