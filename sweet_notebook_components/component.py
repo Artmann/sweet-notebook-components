@@ -24,14 +24,14 @@ class Component:
     def internal_get_props_to_serialize(self):
         return {}
 
-    def __repr_html__(self) -> str:
+    def __del__(self):
         serializer = Serializer()
         json = serializer.serialize_to_json(self)
 
         renderer = Renderer()
         html = renderer.render_to_html(json)
 
-        return html
+        display(HTML(html))
 
 
 class Root(Component):
