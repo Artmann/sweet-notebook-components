@@ -1,4 +1,8 @@
 from typing import List, Dict, Any
+from IPython.display import display, HTML
+
+from sweet_notebook_components.renderer import Renderer
+from sweet_notebook_components.serializer import Serializer
 
 
 class Component:
@@ -15,9 +19,16 @@ class Component:
         return component
 
     def internal_get_props_to_serialize(self):
-        raise NotImplementedError(
-            "Subclasses must implement get_props_to_serialize method"
-        )
+        return {}
+
+    def __repr_html__(self):
+        serializer = Serializer()
+        json = serializer.serialize_to_json(self)
+
+        renderer = Renderer()
+        html = renderer.render_to_html(json)
+
+        return html
 
 
 class Root(Component):
@@ -26,9 +37,6 @@ class Root(Component):
 
     def internal_get_props_to_serialize(self) -> Dict[str, Any]:
         return {}
-
-    def __del__(self):
-        print("Root component deleted")
 
 
 class Text(Component):
