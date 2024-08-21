@@ -18,10 +18,13 @@ class Component:
 
         return component
 
+    def to_html(self):
+        self._repr_html_()
+
     def internal_get_props_to_serialize(self):
         return {}
 
-    def __repr_html__(self):
+    def __repr_html__(self) -> str:
         serializer = Serializer()
         json = serializer.serialize_to_json(self)
 
